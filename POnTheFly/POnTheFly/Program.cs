@@ -15,7 +15,7 @@ namespace POnTheFly
 
             try
             {
-                StreamWriter sw = new StreamWriter(@"c:\PONTHEFLY\POnTheFly\Passageiros.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+                StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Passageiros.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
 
                 foreach (var passageiro in passageiros)
                 {
@@ -44,7 +44,7 @@ namespace POnTheFly
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"c:\PONTHEFLY\POnTheFly\Passageiros.dat"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Passageiros.dat"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -90,7 +90,7 @@ namespace POnTheFly
         {
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\P-ON_THE_FLY\POnTheFly\Venda.dat"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Venda.dat"))
                 {
                     string line;
                     line = sr.ReadLine();
@@ -126,7 +126,7 @@ namespace POnTheFly
             string dataFormat;
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\P-ON_THE_FLY\POnTheFly\Venda.dat"))
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Venda.dat"))
                 {
                     foreach (Venda venda in listaDeVendas)
                     {
@@ -149,7 +149,7 @@ namespace POnTheFly
         {
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\P-ON_THE_FLY\POnTheFly\ItemVenda.dat"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\ItemVenda.dat"))
                 {
                     string line;
                     line = sr.ReadLine();
@@ -178,7 +178,7 @@ namespace POnTheFly
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\P-ON_THE_FLY\POnTheFly\ItemVenda.dat"))
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\ItemVenda.dat"))
                 {
                     foreach (ItemVenda itemVenda in listaDeItemVenda)
                     {
@@ -384,7 +384,7 @@ namespace POnTheFly
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"c:\PONTHEFLY\POnTheFly\Aeronave.dat"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Aeronave.dat"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -759,18 +759,20 @@ namespace POnTheFly
                             switch (opcao)
                             {
                                 case 1:
-                                    venda.AcessarVenda(listaDeVendas, listaDeItemVenda);
+                                    venda.AcessarVenda(listaDeVendas, listaDeItemVenda, listaPassagens, listaVoo);
                                     break;
 
                                 case 2:
                                     GravarArquivoDeVendas(listaDeVendas);
                                     GravarArquivoDeItemVendas(listaDeItemVenda);
+                                    passagem.GravarArquivoPassagem(listaPassagens);
                                     Console.ReadKey();
                                     break;
 
                                 case 3:
                                     CarregarArquivoDeVendas(listaDeVendas);
                                     CarregarArquivoDeItemVenda(listaDeItemVenda);
+                                    passagem.CarregarArquivoPassagem(listaPassagens);
                                     Console.ReadKey();
                                     break;
                             }
