@@ -8,6 +8,8 @@ namespace POnTheFly
 {
     internal class Program
     {
+        #region FuncoesGabriele
+        #endregion
         #region FuncoesJulia
         static void GravarArquivoPassageiros(List<Passageiro> passageiros)
         {
@@ -15,7 +17,10 @@ namespace POnTheFly
 
             try
             {
-                StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Passageiros.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+
+
+                StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Passageiros.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+
 
                 foreach (var passageiro in passageiros)
                 {
@@ -44,7 +49,9 @@ namespace POnTheFly
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Passageiros.dat"))
+
+                using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Passageiros.dat"))
+
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -60,7 +67,7 @@ namespace POnTheFly
                             char.Parse(line.Substring(86, 1))
                             ));
                     }
-                }                
+                }
             }
 
             catch (Exception e)
@@ -90,7 +97,9 @@ namespace POnTheFly
         {
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Venda.dat"))
+
+                using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Venda.dat"))
+
                 {
                     string line;
                     line = sr.ReadLine();
@@ -126,7 +135,9 @@ namespace POnTheFly
             string dataFormat;
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Venda.dat"))
+
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Venda.dat"))
+
                 {
                     foreach (Venda venda in listaDeVendas)
                     {
@@ -149,7 +160,9 @@ namespace POnTheFly
         {
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\ItemVenda.dat"))
+
+                using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\ItemVenda.dat"))
+
                 {
                     string line;
                     line = sr.ReadLine();
@@ -178,7 +191,9 @@ namespace POnTheFly
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\ItemVenda.dat"))
+
+                using (StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\ItemVenda.dat"))
+
                 {
                     foreach (ItemVenda itemVenda in listaDeItemVenda)
                     {
@@ -280,7 +295,7 @@ namespace POnTheFly
                 , "BUE", "CFB", "CLO", "CGR", "CUN", "CCS", "CTG", "CXJ", "XAP", "CLT", "CHI", "MEX", "PTY", "CVG", "CLE"
                 , "CGN", "CGH", "CPH", "CPO", "COR", "CGB", "CUR" , "CWB", "CUZ", "BFW", "DNE", "DTW", "DOU", "DXB","DUP"
                 , "DUB", "DUS", "EDI", "ARN", "FAO", "FEN" ,"PHL" , "FLR", "FLN", "FLL", "FOR", "IGU", "FRA", "GIG","GVA"
-                , "GOA", "GRU", "GYN", "JPR", "JPA", "JOI" , "DEL"};                           
+                , "GOA", "GRU", "GYN", "JPR", "JPA", "JOI" , "DEL"};
 
             return IATA;
         }
@@ -292,7 +307,7 @@ namespace POnTheFly
 
             try
             {
-                StreamWriter sw = new StreamWriter(@"c:\PONTHEFLY\POnTheFly\CompanhiaAerea.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+                StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\CompanhiaAerea.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
 
                 foreach (var companhia in companhias)
                 {
@@ -321,7 +336,7 @@ namespace POnTheFly
 
             try
             {
-                StreamWriter sw = new StreamWriter(@"c:\PONTHEFLY\POnTheFly\Aeronave.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+                StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Aeronave.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
 
                 foreach (var aeronave in aeronaves)
                 {
@@ -340,7 +355,7 @@ namespace POnTheFly
             if (!validacao)
             {
                 Console.WriteLine("\nArquivo gravado com sucesso!");
-            }            
+            }
         }
         static void CarregarArquivoCompanhias(List<CompanhiaAerea> companhias)
         {
@@ -348,7 +363,7 @@ namespace POnTheFly
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"c:\PONTHEFLY\POnTheFly\CompanhiaAerea.dat"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\CompanhiaAerea.dat"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -361,9 +376,9 @@ namespace POnTheFly
                             new DateTime(int.Parse(line.Substring(76, 4)), int.Parse(line.Substring(74, 2)), int.Parse(line.Substring(72, 2))),
                             new DateTime(int.Parse(line.Substring(84, 4)), int.Parse(line.Substring(82, 2)), int.Parse(line.Substring(80, 2))),
                             char.Parse(line.Substring(88, 1))
-                            ));                        
+                            ));
                     }
-                }                
+                }
             }
 
             catch (Exception e)
@@ -384,7 +399,9 @@ namespace POnTheFly
 
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Aeronave.dat"))
+
+                using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Aeronave.dat"))
+
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -397,9 +414,9 @@ namespace POnTheFly
                             new DateTime(int.Parse(line.Substring(15, 4)), int.Parse(line.Substring(13, 2)), int.Parse(line.Substring(11, 2))),
                             new DateTime(int.Parse(line.Substring(23, 4)), int.Parse(line.Substring(21, 2)), int.Parse(line.Substring(19, 2))),
                             char.Parse(line.Substring(27, 1))
-                            ));                        
+                            ));
                     }
-                }                
+                }
             }
 
             catch (Exception e)
@@ -417,21 +434,37 @@ namespace POnTheFly
 
         static void Main(string[] args)
         {
+            //Giovani
             List<CompanhiaAerea> listaCompanhias = new();
             CompanhiaAerea companhia = new();
             List<Aeronave> listaAeronaves = new();
             Aeronave aeronave = new();
+            //Filipi
             List<Voo> listaVoo = new();
             Voo voo = new();
             List<PassagemVoo> listaPassagens = new();
             PassagemVoo passagem = new();
+            List<string> IATA = IniciarIata();
+            //Daniel
             List<Venda> listaDeVendas = new();
             Venda venda = new();
             List<ItemVenda> listaDeItemVenda = new();
             ItemVenda itemVenda = new();
+            //Julia
             List<Passageiro> listaPassageiros = new();
             Passageiro passageiro = new();
-            List<string> IATA = IniciarIata();
+            //Gabriele
+            ListaRestritos minhalista = new ListaRestritos();
+            minhalista.Push(new ArquivoRestritos("123.321.121-12"));
+            ListadeBloqueados minhalista1 = new ListadeBloqueados();
+            minhalista1.Push(new ArquivoBloqueados("67.298.128/0001-54"));
+            ArquivoBloqueados arquivodeBloqueados = new ArquivoBloqueados(null);
+            ArquivoRestritos arquivodeRestritos = new ArquivoRestritos(null);
+            List<ListadeBloqueados> listaBloqueados = new List<ListadeBloqueados>();
+            List<ListaRestritos> listaRestritos = new List<ListaRestritos>();
+            string CPF;
+            string CNPJ;
+            //Program
             int opcao = 5;
             bool condicaoDeParada;
 
@@ -447,7 +480,8 @@ namespace POnTheFly
                 Console.WriteLine("3 - Voo");
                 Console.WriteLine("4 - Passagens");
                 Console.WriteLine("5 - Vendas");
-                Console.WriteLine("6 - Pessoas");
+                Console.WriteLine("6 - Passageiros");
+                Console.WriteLine("7 - Bloqueados/Restritos");
                 Console.WriteLine("\n0 - Sair");
                 Console.Write("\nOpção: ");
 
@@ -465,7 +499,7 @@ namespace POnTheFly
                     condicaoDeParada = true;
                 }
 
-                if (opcao < 0 || opcao > 6)
+                if (opcao < 0 || opcao > 7)
                 {
                     if (!condicaoDeParada)
                     {
@@ -651,7 +685,7 @@ namespace POnTheFly
                                 case 3:
                                     voo.CarregarArquivoVoo(listaVoo);
                                     Console.ReadKey();
-                                    break;   
+                                    break;
                             }
 
                         } while (opcao != 9);
@@ -837,6 +871,149 @@ namespace POnTheFly
                             }
 
                         } while (opcao != 9);
+                        break;
+
+                    case 7:
+
+                        Console.Clear();
+
+                        do
+                        {
+                            Console.WriteLine("                                        <<<<Bem-Vindo(a) a lista de bloqueados e restritos!>>>>                   ");
+                            Console.WriteLine("\nQual das listas deseja acessar: \n1-CPFs restritos.\n2-CNPJs restritos.\n0-SAIR!\nOpções: ");
+                            opcao = int.Parse(Console.ReadLine());
+
+
+                            if (opcao == 1)
+                            {
+                                do
+                                {
+                                    Console.WriteLine("                                     <<<<<Bem-vindo(a) ao menu de CPFs restritos:>>>>>                        ");
+                                    Console.WriteLine("\nQual destas ações deseja fazer? : \n1-Imprimir lista de restritos.\n2-Localizar um CPF.\n3-Remover CPF.\n4-Cadastrar um CPF.\n0-SAIR!\nOpção: ");
+                                    opcao = int.Parse(Console.ReadLine());
+
+                                    if (opcao == 1)
+                                    {
+                                        minhalista.Print();
+
+                                    }
+                                    if (opcao == 2)
+                                    {
+                                        Console.Clear();
+
+                                        Console.Write("\nInforme o CPF que deseja localizar: ");
+                                        CPF = Console.ReadLine();
+                                        minhalista.Find(CPF);
+
+                                    }
+                                    if (opcao == 3)
+                                    {
+                                        Console.Write("\nInforme o CPF que deseja remover: ");
+                                        string cpfremovido = Console.ReadLine();
+                                        minhalista.pop(cpfremovido);
+
+                                        Console.Clear();
+
+                                        minhalista.Print();
+                                    }
+                                    if (opcao == 4)
+                                    {
+
+                                        CPF = ArquivoRestritos.ReadCPF("Informe o cpf sem traço ou ponto: : ");
+
+                                        minhalista.Push(new ArquivoRestritos(CPF));
+                                        opcao = -1;
+
+                                        Console.WriteLine("CPF cadastrado com sucesso!");
+
+                                    }
+                                    else if (opcao == 0)
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Finalizando...");
+                                        return;
+                                    }
+                                    else
+                                        Console.WriteLine("Opção inexistente!");
+
+                                } while (true);
+
+
+                            }
+                            if (opcao == 2)
+                            {
+                                do
+                                {
+                                    Console.WriteLine("                                     <<<<<Bem-vindo(a) ao menu de CNPJs restritos:>>>>>                        ");
+                                    Console.WriteLine("\nQual destas ações deseja fazer? : \n1-Imprimir lista de restritos.\n2-Localizar um CNPJ.\n3-Remover CNPJ.\n4-Cadastrar um CNPJ.\n0-SAIR!\nOpção: ");
+                                    opcao = int.Parse(Console.ReadLine());
+                                } while (opcao < 1 || opcao > 4);
+
+                                if (opcao == 1)
+                                {
+                                    minhalista1.Print();
+
+                                }
+                                if (opcao == 2)
+                                {
+                                    Console.Clear();
+
+                                    Console.Write("\nInforme o CNPJ que deseja localizar: ");
+                                    CNPJ = Console.ReadLine();
+                                    minhalista1.Find(CNPJ);
+
+                                }
+                                if (opcao == 3)
+                                {
+                                    Console.Write("\nInforme o CNPJ que deseja remover: ");
+                                    string cnpjremovido = Console.ReadLine();
+                                    minhalista1.pop(cnpjremovido);
+
+                                    Console.Clear();
+
+
+                                }
+                                if (opcao == 4)
+                                {
+                                    do
+                                    {
+                                        Console.WriteLine("Informe o CNPJ para o cadastro (XX. XXX. XXX/0001-XX): ");
+                                        CNPJ = Console.ReadLine();
+
+                                        if (!arquivodeBloqueados.ValidarCnpj(CNPJ))
+                                        {
+                                            Console.WriteLine("CPNJ digitado é invalido!");
+                                        }
+
+                                    } while (!arquivodeBloqueados.ValidarCnpj(CNPJ));
+
+                                    minhalista1.Push(new ArquivoBloqueados(CNPJ));
+                                    opcao = -1;
+
+                                    Console.WriteLine("CNPJ cadastrado com sucesso!");
+                                }
+
+                                else if (opcao == 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Finalizando...");
+                                    return;
+                                }
+
+                                else
+                                    Console.WriteLine("Opção inexistente!");
+                            }
+                            else if (opcao == 0)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Finalizando...");
+                                return;
+                            }
+                            else
+                                Console.WriteLine("Opção inexistente!");
+
+                        } while (true);
+
                         break;
 
                     case 0:
