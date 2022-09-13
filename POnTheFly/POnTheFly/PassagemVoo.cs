@@ -273,7 +273,7 @@ namespace POnTheFly
 
             try
             {
-                StreamWriter sw = new StreamWriter(@"c:\PONTHEFLY\POnTheFly\PassagemVoo.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+                StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\PassagemVoo.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
                                                                                                 //sw.WriteLine("maria;araraquara;190;contato;"); //Exemplo de escrita - formato da escrita será de acordo com a necessidade do projeto
                 foreach (var i in listaPassagem)
                 {
@@ -297,7 +297,7 @@ namespace POnTheFly
         {       
             try
             {
-                using (StreamReader sr = new StreamReader(@"c:\PONTHEFLY\POnTheFly\PassagemVoo.dat"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\PassagemVoo.dat"))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)

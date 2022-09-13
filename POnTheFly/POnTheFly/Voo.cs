@@ -308,7 +308,7 @@ namespace POnTheFly
             Console.WriteLine("\nIniciando a Gravação de Dados...");
             try
             {
-                StreamWriter sw = new StreamWriter(@"c:\PONTHEFLY\POnTheFly\Voo.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+                StreamWriter sw = new StreamWriter(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Voo.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
                                                                                         //sw.WriteLine("Treinamento de C#");  //Escreve uma linha no Arquivo
                                                                                         //sw.WriteLine("maria;araraquara;190;contato;"); //Exemplo de escrita - formato da escrita será de acordo com a necessidade do projeto
                 foreach (Voo i in listaVoo)
@@ -336,7 +336,7 @@ namespace POnTheFly
             try
             {
                 string line;
-                StreamReader sr = new StreamReader(@"c:\PONTHEFLY\POnTheFly\Voo.dat");//Instancia um Objeto StreamReader (Classe de Manipulação de Leitura de Arquivos)
+                StreamReader sr = new StreamReader(@"C:\Users\5BY5\source\repos\PROJETO-ON-THE-FLY\POnTheFly\Voo.dat");//Instancia um Objeto StreamReader (Classe de Manipulação de Leitura de Arquivos)
                 line = sr.ReadLine(); //Faz a Leitura de uma linha do arquivo e atribui a string line
                 while (line != null)
                 {

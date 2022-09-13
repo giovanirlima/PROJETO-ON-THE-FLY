@@ -23,57 +23,75 @@ namespace Projeto_OnTheFly
             Passageiro = passageiro;
             ValorTotal = valorTotal;
         }
-        public Venda CadastrarVenda(List<Venda> listaDeVendas, List<ItemVenda> listaDeItemVenda)
+        public Venda CadastrarVenda(List<Venda> listaDeVendas, List<ItemVenda> listaDeItemVenda, List<PassagemVoo> listaDePassagemVoo, List<Voo> listaDeVoo)
         {
 
             double valorUnitarioPassagem = 1000;
             int tamanhoListaDeVendas = listaDeVendas.Count;
-            int qtdPassagens = 0;
+            int qtdPassagensVenda = 0;
             string cpf;
 
             Console.Clear();
 
             cpf = Program.ReadCPF("Digite o CPF do portador sem pontos ou traço: ");
 
-            if (false) //inserir a funcao de buscar cpf na lista de restritos aqui
-            {
-                Console.WriteLine("CPF Restrito, impossivel realizar a venda");
-                return null;
-            }
-
-            if (false) //inserir a funcao de buscar cpf na lista de restritos aqui
-            {
-                Console.WriteLine("O passageiro tem menos de 18 anos, impossivel realizar a venda");
-                return null;
-            }
-
-            if (false) // verificar aqui se a quantidade de passagens livres é maior que qtdPassagens
-            {
-                //msg = "Nao foi possivel vender as passagens! Verifique a quantidade de passagens disponiveis";
-            }
-            //Trocar o status da passagem para Paga
-
             do
             {
-                qtdPassagens = Program.ReadInt("Digite a quantidade de passagens que deseja comprar" +
+                qtdPassagensVenda = Program.ReadInt("Digite a quantidade de passagens que deseja comprar" +
                     " (maximo 4 por venda): ");
-                if (qtdPassagens < 1 || qtdPassagens > 4) Console.WriteLine("Quantidade invalida!");
-            } while (qtdPassagens < 1 || qtdPassagens > 4);
+                if (qtdPassagensVenda < 1 || qtdPassagensVenda > 4) Console.WriteLine("Quantidade invalida!");
+            } while (qtdPassagensVenda < 1 || qtdPassagensVenda > 4);
+            Console.WriteLine("Informe o id voo desejado: ");
+
+            Voo voo = new();
+            voo = voo.LocalizarVoo(listaDeVoo);
+            if (voo == null)
+            {
+                Console.WriteLine("\nParametro de entrada é inválido!");
+                Console.ReadKey();
+                return null;
+            }
+
+            int qtdPassagemLivre = 0;
+            bool b = false;
+            string aux = "V" + voo.IDVoo.ToString().PadRight(4);
+
+            foreach (PassagemVoo passagem in listaDePassagemVoo)
+            {
+                b = aux == passagem.IdVoo;
+                if (b && passagem.Situacao == 'L') qtdPassagemLivre++;
+            }
+            if (qtdPassagemLivre < qtdPassagensVenda)
+            {
+                Console.WriteLine("A quantidade de passagem livres é menor do que a quantidade a ser vendida! Venda nao realizada");
+                return null;
+            }
+            int contadorAuxiliar = qtdPassagensVenda;
+            foreach (PassagemVoo passagem in listaDePassagemVoo)
+            {
+                if (passagem.Situacao == 'L' && contadorAuxiliar !=0)
+                {
+                    passagem.Situacao = 'P';
+                    contadorAuxiliar--;
+                }
+            }
+
+            //Trocar o status da passagem para Paga
+
 
             Venda venda = new Venda
             (
                 tamanhoListaDeVendas + 1,
                 DateTime.Today,
                 cpf,
-                qtdPassagens * valorUnitarioPassagem
+                qtdPassagensVenda * valorUnitarioPassagem
             );
 
-            for (int i = 0; i < qtdPassagens; i++)
+            for (int i = 0; i < qtdPassagensVenda; i++)
             {
                 ItemVenda itemVenda = new ItemVenda(venda.Id, 5555, valorUnitarioPassagem);
                 listaDeItemVenda.Add(itemVenda);
             }
-            //msg = "Venda Cadastrada com sucesso!";
             return venda;
 
         }
@@ -167,7 +185,7 @@ namespace Projeto_OnTheFly
                 }
             }
         }
-        public void AcessarVenda(List<Venda> listaDeVendas, List<ItemVenda> listaDeItemVenda)
+        public void AcessarVenda(List<Venda> listaDeVendas, List<ItemVenda> listaDeItemVenda, List<PassagemVoo> listaDePassagemVoo, List<Voo> listaDeVoo)
         {
             int opcao = 0;
             bool condicaoDeParada = false;
@@ -213,7 +231,7 @@ namespace Projeto_OnTheFly
                 switch (opcao)
                 {
                     case 1:
-                        listaDeVendas.Add(venda.CadastrarVenda(listaDeVendas, listaDeItemVenda));
+                        listaDeVendas.Add(venda.CadastrarVenda(listaDeVendas, listaDeItemVenda, listaDePassagemVoo, listaDeVoo));
                         Console.ReadKey();
                         break;
 

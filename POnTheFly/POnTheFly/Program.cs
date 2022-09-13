@@ -17,7 +17,10 @@ namespace POnTheFly
 
             try
             {
+
+
                 StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Passageiros.dat");  //Instancia um Objeto StreamWriter (Classe de Manipulação de Arquivos)
+
 
                 foreach (var passageiro in passageiros)
                 {
@@ -46,7 +49,9 @@ namespace POnTheFly
 
             try
             {
+
                 using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Passageiros.dat"))
+
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -92,7 +97,9 @@ namespace POnTheFly
         {
             try
             {
+
                 using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Venda.dat"))
+
                 {
                     string line;
                     line = sr.ReadLine();
@@ -128,7 +135,9 @@ namespace POnTheFly
             string dataFormat;
             try
             {
+
                 using (StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Venda.dat"))
+
                 {
                     foreach (Venda venda in listaDeVendas)
                     {
@@ -151,7 +160,9 @@ namespace POnTheFly
         {
             try
             {
+
                 using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\ItemVenda.dat"))
+
                 {
                     string line;
                     line = sr.ReadLine();
@@ -180,7 +191,9 @@ namespace POnTheFly
         {
             try
             {
+
                 using (StreamWriter sw = new StreamWriter(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\ItemVenda.dat"))
+
                 {
                     foreach (ItemVenda itemVenda in listaDeItemVenda)
                     {
@@ -386,7 +399,9 @@ namespace POnTheFly
 
             try
             {
+
                 using (StreamReader sr = new StreamReader(@"C:\Users\WATZECK\Desktop\PONTHEFLY\POnTheFly\Aeronave.dat"))
+
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -778,18 +793,20 @@ namespace POnTheFly
                             switch (opcao)
                             {
                                 case 1:
-                                    venda.AcessarVenda(listaDeVendas, listaDeItemVenda);
+                                    venda.AcessarVenda(listaDeVendas, listaDeItemVenda, listaPassagens, listaVoo);
                                     break;
 
                                 case 2:
                                     GravarArquivoDeVendas(listaDeVendas);
                                     GravarArquivoDeItemVendas(listaDeItemVenda);
+                                    passagem.GravarArquivoPassagem(listaPassagens);
                                     Console.ReadKey();
                                     break;
 
                                 case 3:
                                     CarregarArquivoDeVendas(listaDeVendas);
                                     CarregarArquivoDeItemVenda(listaDeItemVenda);
+                                    passagem.CarregarArquivoPassagem(listaPassagens);
                                     Console.ReadKey();
                                     break;
                             }
